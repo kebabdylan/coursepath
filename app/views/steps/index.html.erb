@@ -1,25 +1,26 @@
 <h1>Listing steps</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-	<th>Step</th>
-    <th>Title</th>
-    <th>Description</th>
+	<th>Course</th>
+    <th>Step</th>
+
     <th>Priority</th>
     <th></th>
-    <th></th>
-    <th></th>
+
   </tr>
 
 <% @steps.each do |step| %>
   <tr>
 	<td><%= step.course.code %>-<%= step.course.number %></td>
     <td><%= step.title %></td>
-    <td><%= step.description %></td>
+
     <td><%= step.priority %></td>
-    <td><%= link_to 'Show', step %></td>
-    <td><%= link_to 'Edit', edit_step_path(step) %></td>
-    <td><%= link_to 'Destroy', step, confirm: 'Are you sure?', method: :delete %></td>
+    <td nowrap="true">
+		<%= link_to 'Show', step %>
+		<%= link_to 'Edit', edit_step_path(step) %>
+		<%= link_to 'Destroy', step, confirm: 'Are you sure?', method: :delete %>
+	</td>
   </tr>
 <% end %>
 </table>

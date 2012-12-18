@@ -1,4 +1,4 @@
-<%= form_for(@step) do |f| %>
+<%= form_for(@step, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @step.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@step.errors.count, "error") %> prohibited this step from being saved:</h2>
@@ -10,23 +10,36 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :course %><br />
-   <%=  collection_select(:step, :course_id, Course.all, :id, :code) %>
+  <div class="control-group">
+    <%= f.label :course, :class=>"control-label" %>
+	<div class="controls">
+	<%=  collection_select(:step, :course_id, Course.all, :id, :code) %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="control-group">
+    <%= f.label :title, :class=>"control-label" %>
+	<div class="controls">
+    <%= f.text_field :title, :placeholder=>"Title" %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :priority %><br />
-    <%= f.number_field :priority %>
+  <div class="control-group">
+    <%= f.label :description, :class=>"control-label" %>
+    <div class="controls">
+	<%= f.text_area :description %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  </div>
+  <div class="control-group">
+    <%= f.label :priority, :class=>"control-label" %>
+    <div class="controls">
+		<%= f.number_field :priority %>
+	</div>
+  </div>
+   
+   
+   <div class="control-group">
+	<div class="controls">
+	<button type="submit" class="btn">Create</button>
+	<%= button_to 'Return to List', :action=>"index", :class=>"btn" %>
+  </div>
   </div>
 <% end %>
