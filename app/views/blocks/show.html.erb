@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @block.title %>
+</p>
+
+<p>
+  <b>Weeks:</b>
+  <%= @block.weeks %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @block.priority %>
+</p>
+
+<p>
+  <b>Step:</b>
+  <%= @block.step %>
+</p>
+
+
+<%= link_to 'Edit', edit_block_path(@block) %> |
+<%= link_to 'Back', blocks_path %>

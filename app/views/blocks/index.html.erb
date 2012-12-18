@@ -1,0 +1,29 @@
+<h1>Listing blocks</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Weeks</th>
+    <th>Priority</th>
+    <th>Step</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @blocks.each do |block| %>
+  <tr>
+    <td><%= block.title %></td>
+    <td><%= block.weeks %></td>
+    <td><%= block.priority %></td>
+    <td><%= block.step %></td>
+    <td><%= link_to 'Show', block %></td>
+    <td><%= link_to 'Edit', edit_block_path(block) %></td>
+    <td><%= link_to 'Destroy', block, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Block', new_block_path %>

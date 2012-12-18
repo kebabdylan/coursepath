@@ -1,0 +1,33 @@
+<%= form_for(@block) do |f| %>
+  <% if @block.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@block.errors.count, "error") %> prohibited this block from being saved:</h2>
+
+      <ul>
+      <% @block.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :weeks %><br />
+    <%= f.number_field :weeks %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= f.number_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :step %><br />
+    <%=  collection_select(:block, :step_id, Stepp.all, :id, :title) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
